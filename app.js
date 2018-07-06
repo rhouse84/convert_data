@@ -7,7 +7,7 @@ const config = require('./config');
 const mongoose = require('mongoose');
 const Datastore = require('@google-cloud/datastore');
 const projectId = 'booktracks';
-const Promise = require('promise');
+const cors = require('cors');
 require('dotenv').config();
 
 const datastore = new Datastore({
@@ -15,6 +15,7 @@ const datastore = new Datastore({
 });
 
 app.use(bodyParser.json());
+app.use(cors());
 
 var Author = require('./api/models/authorModel');
 var Book = require('./api/models/bookModel');
